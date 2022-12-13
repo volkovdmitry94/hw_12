@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 12</title>
+    <style>
+        button{
+            display: block;
+            padding: 20px;
+        }
+        .task{
+            margin-bottom: 40px;
+        }
+        .task div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="task task1">
+    <div>
+        <label for="inputName">Input your name:</label>
+        <input type="text" id="inputName" name="inputName" maxlength="100">
+    </div>
+    <div>
+        <button onclick="task1()">Task 1</button>
+    </div>
+    <div>
+        <span>Task 1 Result:</span>
+        <span id="text1">Text 1 - default</span>
+    </div>
+</div>
+<div class="task task2">
+    <div>
+        <label for="password1">Password 1:</label>
+        <input type="password" id="password1" name="password1"
+               maxlength="100">
+    </div>
+    <div>
+        <label for="password2">Password 2:</label>
+        <input type="password" id="password2" name="password2"
+               maxlength="100">
+    </div>
+    <div>
+        <button onclick="task2()">Task 2</button>
+    </div>
+    <div>
+        <span>Task 2 Result:</span>
+        <span id="text2">Text 2 - default</span>
+    </div>
+</div>
+<div class="task task3">
+    <div>
+        <button onclick="task3()">Task 3</button>
+    </div>
+    <div>
+        <span>Task 3 Result:</span>
+        <span id="text3">Text 3 - default</span>
+    </div>
+</div>
+
+
+<script>
+    // Task 1
+    const text1 = document.querySelector('#text1');
+    const nameInput = document.querySelector('#inputName');
+    function task1() {
+        if (nameInput.value === '') {
+            text1.textContent = 'Empty input!';
+        } else {
+            text1.textContent = 'Hello ' + nameInput.value + '!';
+        }
+    }
+
+    // Task 2
+    const text2 = document.getElementById('text2');
+    const password1 = document.getElementById('password1');
+    const password2 = document.getElementById('password2');
+    function task2() {
+        if (password1.value === '' && password1.value === '') {
+            text2.textContent = 'Empty password inputs!';
+        } else if (password1.value === password2.value) {
+            text2.textContent = 'Equal';
+        } else {
+            text2.textContent = 'Not equal';
+        }
+    }
+
+    // Task 3
+    const text3 = document.getElementById('text3');
+    function task3() {
+        let newText = Math.floor(Math.random() * 1000);
+        text3.textContent = String(newText);
+    }
+</script>
+</body>
+</html>
